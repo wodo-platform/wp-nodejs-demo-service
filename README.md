@@ -44,6 +44,7 @@
 - [Running the app](#running-the-app)
 - [Building docker image](#building-docker-image)
 - [CI and Github Workflows](#ci-and-github-workflows)
+- [Next Steps](#next-steps)
 
 ----
 
@@ -113,3 +114,7 @@ Open the url "http://localhost:8080/api/demos" and "http://localhost:8080/docs" 
 ## CI and Github Workflows
 
 In order to build and package your repo through CI/CD, please have a a look at the file .github/workflows/pipeline.yml under the root project folder. It is preconfigured githubflow. Whenever you push a change onto the main branch, it is triggered. It will be improved to be able to package and release artifacts based on a release process later.
+
+## Next Steps
+
+Once you compose your new repo, you can create helm charts in wodo-helm-charts repo then conitinue with local deployment and official CI/CD gitops deployment. Please refer to Wodo Platform Local Dev Environment guide.
