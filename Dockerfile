@@ -2,10 +2,10 @@ FROM node:14.18-alpine As development
 
 ARG NPM_TOKEN
 
-ENV NPM_EMAIL="wodo-platform@users.noreply.github.com"
-ENV NPM_REGISTRY="https://npm.pkg.github.com"
-ENV NPM_SCOPE="@wodo-platform"
-ENV NPM_TOKEN=${NPM_TOKEN}
+#ENV NPM_EMAIL="wodo-platform@users.noreply.github.com"
+#ENV NPM_REGISTRY="https://npm.pkg.github.com"
+#ENV NPM_SCOPE="@wodo-platform"
+#ENV NPM_TOKEN=${NPM_TOKEN}
 
 WORKDIR /usr/src/app
 
