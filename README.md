@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="http://wodoplatform.io/" target="blank"><img src="https://github.com/wodo-platform/wodo-docs/images/wodo_logo_large.png" width="320" alt="Wodo Platform" /></a>
+  <a href="http://wodoplatform.io/" target="blank"><img src="https://github.com/wodo-platform/wodo-docs/blob/main/images/wodo_logo.png" width="320" alt="Wodo Platform" /></a>
 </p>
 
 <h2> Wodo Platform NodeJs Template Application </h2>
