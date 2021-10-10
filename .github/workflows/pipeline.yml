@@ -12,7 +12,6 @@ env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-
   NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
@@ -33,9 +32,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - run: npm install
-        env:
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: echo "@wodo-platform:registry=https://npm.pkg.github.com/" > .npmrc 
+      - run: echo "//npm.pkg.github.com/:_authToken=$NPM_TOKEN" >> .npmrc && npm install  && rm -f .npmrc
+      #- run: npm install
+      #  env:
+      #    NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #- run: npm test 
        
       # Login against a Docker registry except on PR
