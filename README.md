@@ -84,7 +84,7 @@ $ npm run start:prod
 
 ## Building docker image
 
-Along with build and run functionality on your command line, we need to build docker images as well. It means we need to build your project from scratch while preparing docker images. You need to run "npm login" command during docker build process. In order to achive that we can use .npmrc file that is already generated when you run "npm login" in your $user_home folder. Please copy this file under your project root and channge _authToken value with ${NPM_TOKEN} in the file. You can also use the deault .npmrc already available in the root folder of the demo/template reprepo. We will provide the token as argument to the docker build process. 
+Along with build and run functionality on your command line, we need to build docker images as well. It means we need to build your project from scratch while preparing docker images. You need to run "npm login" command during docker build process. In order to achive that we can generate .npmrc file in Dockerfile with ${NPM_TOKEN} argument. We will provide the token as argument NPM_TOKEN to the docker build process. 
 
 In your repo root folder, run the following command with your own git token. It will build docker image and add it to your configured docker registery on your laptop
 

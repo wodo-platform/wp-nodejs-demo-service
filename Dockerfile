@@ -12,20 +12,18 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 
-COPY .npmrc ./
+RUN echo "@wodo-platform:registry=https://npm.pkg.github.com/" > .npmrc 
+RUN echo "//npm.pkg.github.com/:_authToken=$NPM_TOKEN" >> .npmrc && \
+    npm install  && \
+    rm -f .npmrc
 
-RUN npm install
 
-RUN rm -f .npmrc
+#RUN npm install
 
-#RUN npm install -g npm-cli-login
+#RUN rm -f .npmrc
 
-#RUN npm-cli-login
 
-#RUN echo "@wodo-platform:registry=https://npm.pkg.github.com/" > .npmrc 
-#RUN echo "//npm.pkg.github.com/:_authToken=$NPM_TOKEN" >> .npmrc && \
-#    npm install  && \
-#    rm -f .npmrc
+
 
 
 COPY . .
@@ -52,7 +50,7 @@ COPY package*.json ./
 
 COPY . .
 
-RUN rm -f .npmrc
+#RUN rm -f .npmrc
 
 # TODO: find a better way to bundle dependencies with nestjs. 
 COPY --from=development /usr/src/app/node_modules ./node_modules
