@@ -12,13 +12,13 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 
-RUN echo "@wodo-platform:registry=https://npm.pkg.github.com/" > .npmrc 
-RUN echo "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}" >> .npmrc && \
-    npm install  && \
-    rm -f .npmrc
+#RUN echo "@wodo-platform:registry=https://npm.pkg.github.com/" > .npmrc 
+#RUN echo "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}" >> .npmrc && \
+#    npm install  && \
+#    rm -f .npmrc
 
 
-#RUN npm install
+RUN npm install
 
 #RUN rm -f .npmrc
 
