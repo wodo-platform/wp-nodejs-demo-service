@@ -13,7 +13,7 @@ COPY package*.json ./
 
 
 RUN echo "@wodo-platform:registry=https://npm.pkg.github.com/" > .npmrc 
-RUN echo "//npm.pkg.github.com/:_authToken=$NPM_TOKEN" >> .npmrc && \
+RUN echo "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}" >> .npmrc && \
     npm install  && \
     rm -f .npmrc
 
