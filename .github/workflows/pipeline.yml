@@ -40,7 +40,7 @@ jobs:
           rm -f .npmrc
         env:
           NPM_TOKEN: ${{ secrets.WODO_TOKEN }}
-      - run: npm test 
+      #- run: npm test 
        
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
