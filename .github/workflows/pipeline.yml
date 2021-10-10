@@ -34,8 +34,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install dependencies
-        run: | 
-          echo "@wodo-platform:registry=https://npm.pkg.github.com/" > .npmrc 
+        run: |
+          echo "@wodo-platform:registry=https://npm.pkg.github.com/" > .npmrc
           echo "//npm.pkg.github.com/:_authToken=$NPM_TOKEN" >> .npmrc 
           npm install
           rm -f .npmrc
