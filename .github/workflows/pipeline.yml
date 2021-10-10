@@ -1,8 +1,7 @@
 name: Build and Publish
 
 on:
-  #schedule:
-  #  - cron: $cron-daily
+  # TODO: re-design the flow as we may night be build docker images for each commit
   push:
     branches: [ main ]
   pull_request:
