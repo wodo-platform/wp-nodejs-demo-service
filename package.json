@@ -2,8 +2,13 @@
   "name": "wp-nodejs-demo-service",
   "version": "1.0.0",
   "description": "Demo Service template developers to speed up their development process by providing the nodejs service template with prisma and nest frameworks",
-  "author": "Serhat TANRIKUT",
-  "private": true,
+  "author": "Wodo Platform",
+  "repository": {
+    "url": "git@github.com:wodo-platform/wp-nodejs-demo-service.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "license": "UNLICENSED",
   "prisma": {
     "schema": "./node_modules/@wodo-platform/wodo-nodejs-persistence/prisma/schema.prisma"
