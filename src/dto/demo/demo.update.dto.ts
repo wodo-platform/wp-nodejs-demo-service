@@ -1,4 +1,4 @@
-export default interface DemoUpdateDto {
+export interface DemoUpdateDto {
     id: number;
     name: string;
     deleted: boolean;

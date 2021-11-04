@@ -1,4 +1,4 @@
-export default interface DemoCreateParams {
+export interface DemoCreateParams {
     name: string;
     description: string | null;
 }

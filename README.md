@@ -40,9 +40,10 @@
 
 - [About](#about)
 - [Installation](#installation)
-  - [Adding wodo-nodejs-persistance dependency](#adding-wodo-nodejs-persistance-dependency)
+- [Adding wodo-nodejs-persistance dependency](#adding-wodo-nodejs-persistance-dependency)
 - [Running the app](#running-the-app)
 - [Building docker image](#building-docker-image)
+- [Publish The Module as NPM Package Locally](#publish-the-module-as-npm-package-locally)
 - [CI and Github Workflows](#ci-and-github-workflows)
 - [Next Steps](#next-steps)
 
@@ -52,11 +53,13 @@
 
 This is a template/boilerplate repository to speed up development process. New nodejs application/repositories can be created bsaed on this template. NestJS and prisma frameworks are enabled. 
 
+> please do not forget to add "@wodo-platform/"  to name of your module in package.json file in order to publish it to the github npm repo.
+
 ## Installation
 
 All dependency management and nestjs configurations are already done in the template repo. To add database access capabilities,  wodo-nodejs-persistance is added to the npm dependency list and prisma client lib is genereated based on prisma.schema file resides in wodo-nodejs-persistance dependency.
 
-###  Adding wodo-nodejs-persistance dependency
+##  Adding wodo-nodejs-persistance dependency
 
 To be able to add wodo-nodejs-persistance as npm dependency, you need to authenticate to git remote npm package repository by logging in to npm, use the npm login command, replacing USERNAME with your GitHub username, TOKEN with your personal access token, and PUBLIC-EMAIL-ADDRESS with your email address.
 
@@ -110,6 +113,56 @@ $ docker run -dp 8080:3000 wp-nodejs-demo-service
 ```
 
 Open the url "http://localhost:8080/api/demos" and "http://localhost:8080/docs" in your browser to see API and swagger doc.
+
+## Publish The Module as NPM Package Locally
+
+You may need to publish npm packages from your local dev env in order to speed up development process. It is sort of workaround and you should do clean-up your published package versions. Official github actions will take care of package publishing eventually.
+
+Please follow the steps below to publish wodo-nodejs-persistance npm package from your local development environment.
+
+```bash
+npm login --scope=@wodo-platform --registry=https://npm.pkg.github.com
+```
+
+in your terminal and you’ll be prompted to provide the following. Enter your github username, access token and wodo-platform email:
+
+```bash
+Username: YOUR_GITHUB_USERNAME
+Password: YOUR_GITHUB_TOKEN
+Email (this IS public): wodo-platform@users.noreply.github.com
+```
+
+Once you log in successfully, you will see the messafe below:
+
+```bash
+Logged in as serhattanrikut to scope @wodo-platform on https://npm.pkg.github.com/.
+```
+Publish the package:
+
+```bash
+npm publish
+```
+
+Verif that wodo-nodejs-persistance package has been published successfully with the correct version you provided in package.json file. Go to the page below and make sure that your packge is listed on the  published artifact list
+
+```
+https://github.com/orgs/wodo-platform/packages
+```
+
+> You should increase version number when you need to re-publish a new package version.
+
+Once the package is published, you can add it to the dependencies list in package.json file. In order to retrieve the dependency, you must run **"npm login --scope=@Ywodo-platform --registry=https://npm.pkg.github.com
+"** command at least once in your command prompt.
+
+```
+"dependencies": {
+        "@wodo-platform/wodo-nodejs-persistance": "1.0.0",
+
+  }
+```
+
+More details can be found on <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry"> this page </a>
+
 
 ## CI and Github Workflows
 

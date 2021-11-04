@@ -1,4 +1,4 @@
-export default interface DemoUpdateParams {
+export interface DemoUpdateParams {
     id: number;
     name: string;
     deleted: boolean;
