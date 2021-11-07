@@ -4,6 +4,8 @@ import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags, ApiParam } from '@ne
 import { DemoCreateDto } from '../../dto/demo/demo.create.dto';
 import { DemoUpdateDto } from '../../dto/demo/demo.update.dto';
 import { DemoService } from './demo.service';
+import { ValidationPipe } from '../../common/pipes/validation.pipe';
+import {VALIDATION_SCHEMA_DEMO_CREATE, VALIDATION_SCHEMA_DEMO_UPDATE} from "../../common/pipes/validation"
 
 
 @ApiBearerAuth()
@@ -16,7 +18,7 @@ export class DemoController {
   @ApiResponse({ status: 201, description: 'The demo has been successfully created.' })
   @ApiResponse({ status: 403, description: 'Forbidden.' })
   @Post()
-  async createDemo(@Body() demoCreateDto: DemoCreateDto) {
+  async createDemo(@Body(new ValidationPipe(VALIDATION_SCHEMA_DEMO_CREATE)) demoCreateDto: DemoCreateDto) {
     return await this.demoService.create(demoCreateDto);
   }
 
@@ -24,7 +26,7 @@ export class DemoController {
   @ApiResponse({ status: 201, description: 'The demo has been successfully updated.' })
   @ApiResponse({ status: 403, description: 'Forbidden.' })
   @Put()
-  async updateDemo(@Body() demoUpdateDto: DemoUpdateDto) {
+  async updateDemo(@Body(new ValidationPipe(VALIDATION_SCHEMA_DEMO_UPDATE)) demoUpdateDto: DemoUpdateDto) {
     return await this.demoService.update(demoUpdateDto);
   }
 

@@ -23,7 +23,7 @@ describe("DemoController", () => {
 
         demoModuleRef = await Test.createTestingModule({
             controllers: [DemoController],
-            providers: [DemoService, PrismaServiceProvider],
+            providers: [String,DemoService, PrismaServiceProvider],
         }).compile();
     });
 
