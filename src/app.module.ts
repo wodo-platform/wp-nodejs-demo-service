@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
-import { RouterModule } from '@nestjs/core';
+import { APP_INTERCEPTOR, RouterModule } from '@nestjs/core';
 import { ScheduleModule } from '@nestjs/schedule';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DemoModule } from './module/demo/demo.module';
+import { WPErrorsInterceptor } from '@wodo-platform/wp-shared-lib/dist/wodoplatform/error/wp.errors.interceptor'
+
 
 @Module({
   imports: [
@@ -17,6 +19,10 @@ import { DemoModule } from './module/demo/demo.module';
     ]),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: WPErrorsInterceptor,
+    }, AppService],
 })
 export class AppModule {}
